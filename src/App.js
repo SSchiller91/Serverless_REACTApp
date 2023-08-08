@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./Login";
+import {useState} from 'react';
 
-function App() {
+function App(){
+  const [isShown, setIsShown] = useState(false);
+
+  const handleLogin = event => {
+    // 👇️ toggle shown state
+    setIsShown(current => !current);
+
+    // 👇️ or simply set it to true
+    // setIsShown(true);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>AnyTravel - Your next adventure is just a click away</h1>
+      <button onClick={handleLogin}>Login</button>
+            {isShown && <Login/> }
+      
     </div>
   );
 }
