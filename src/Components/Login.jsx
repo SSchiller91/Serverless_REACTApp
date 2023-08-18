@@ -1,23 +1,32 @@
 import "@aws-amplify/ui-react/styles.css";
+import Navbar from "../Components/navbar/Navbar";
+import Header from "../Components/header/Header";
 import {
   withAuthenticator,
+  Authenticator,
+  useAuthenticator,
   Button,
   Heading,
   Image,
   View,
   Card,
 } from "@aws-amplify/ui-react";
-import { Auth } from 'aws-amplify';
+import { useNavigate } from 'react-router-dom';
 
-const Login = ({signOut}) => {
+
+const Login = ({user, signOut}) => {
+
+    const navigate = useNavigate();
+    //const { route } = useAuthenticator(context => [context.route]);
+
+
     return (
-        <View className="Login">
-          <Card>
-            <Heading level={1}>You are signed in</Heading>
-          </Card>
-          <Button onClick={signOut}>Sign Out</Button>
-        </View>
+      <div>
+        <div className = "LoginContainer">
+          <Navbar></Navbar>
+          <Header></Header>
+        </div>
+      </div>
       );
 }
-
 export default withAuthenticator(Login);

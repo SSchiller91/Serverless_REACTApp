@@ -6,7 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { useNavigate } from 'react-router-dom';
 
-
 const  Flight =  () => {
     //Destination and Origin
     const [origin, setOrigin] = useState("");
@@ -21,6 +20,7 @@ const  Flight =  () => {
     const [flightsArray, setFlightsArray] = useState();
     //if state of flightsArray changes, move to next page 
     const [allowNext, setAllowNext] = useState(false);
+    
 
     useEffect(() => {
         handleSearch()
@@ -50,7 +50,6 @@ const  Flight =  () => {
           .then(() => setAllowNext(true))
         }
 
-    
     //increase/decrease people option
     function handleOption(operation){
         if(operation == "increase"){

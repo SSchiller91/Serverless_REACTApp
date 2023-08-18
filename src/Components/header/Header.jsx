@@ -21,9 +21,8 @@ const Header = () => {
                 <p className="headerDesc">
                     AnyTravel, your next adventure is just a click away
                 </p>
-                <button className="headerBtn"> Sign/Register</button>
                     <div className="headerSearchItem">
-                    <Flight/>
+                        <Flight/>
                     </div>
             </div>
         </div>

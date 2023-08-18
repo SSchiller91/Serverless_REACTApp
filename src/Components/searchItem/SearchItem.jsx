@@ -2,8 +2,10 @@ import "./searchitem.css";
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {format} from "date-fns";
-
-
+import React, { Component } from 'react';
+import { useAuthenticator } from '@aws-amplify/ui-react';
+import { useNavigate } from 'react-router-dom';
+import { Auth } from 'aws-amplify';
 
 const SearchItem = () => {
 
@@ -15,51 +17,72 @@ const SearchItem = () => {
     const [endDate, setEndDate] = useState(location.state.endDate);
     const [options, setOptions] = useState(location.state.options);
     const [people, setPeople] = useState(location.state.people);
-
+    const { user } = useAuthenticator((context) => [context.user]);
+    const { authStatus } = useAuthenticator(context => [context.authStatus]);
+    const navigate = useNavigate();
+    const [jwtToken, setjwtToken] = useState();
     //Calculate full price (price of one seat * number of seats to reserve)
     const calculatePrice = (price, seats) => {
         let final = price * seats;
         return final;
     }
+    const getToken = () => {
+        let jwt;
+        Auth.currentSession().then(res=>{
+          let accessToken = res.getAccessToken()
+           jwt = accessToken.getJwtToken()
+          console.log("Your JWT Token: " + jwt);
+          setjwtToken(jwt);
+        })
+        return jwt;
+      }
     //open websocket connection and send flight data for booking    
-    const executeBooking = () => {
-
-        var W3CWebSocket = require('websocket').w3cwebsocket;
-        var client = new W3CWebSocket('wss://3qg2c8eoae.execute-api.eu-central-1.amazonaws.com/production');
-        
-        var W3CWebSocket = require('websocket').w3cwebsocket;
-
-
-
-        client.onopen = () => {
-            console.log('WebSocket Client Connected');
-            client.send(bookFlight())
-        };
-
-        client.onmessage = (message) => {
-            console.log(message);
-        };
-        client.onerror = function() {
-            console.log('Connection Error');
-        };
- 
-    //parameters for the flight to book
-    function bookFlight() {
-            var flight = JSON.stringify({"flightnumber": "23514", "user": "stepesch089", "seats":"2"});
-            console.log("sendFlight")
-            return flight
+    
+    const executeBooking = (selectedFlightNumber) => {
+        if(authStatus === 'authenticated'){
+            let jwt;
+            Auth.currentSession().then(res=>{
+                let accessToken = res.getAccessToken()
+                jwt = accessToken.getJwtToken()
+                setjwtToken(jwt);
+            })
+            if(jwtToken != undefined){
+                console.log("Token verfügbar")
+                console.log (jwtToken);
+            var W3CWebSocket = require('websocket').w3cwebsocket;
+            var client = new W3CWebSocket('wss://gg96x13vd5.execute-api.eu-central-1.amazonaws.com/production?token="'+jwtToken+'"');
+            var W3CWebSocket = require('websocket').w3cwebsocket;
+            
+                client.onopen = () => {
+                    console.log('WebSocket Client Connected');
+                    client.send(bookFlight(selectedFlightNumber))
+                };
+                client.onmessage = (message) => {
+                    console.log(message);
+                };
+                client.onerror = function() {
+                    console.log('Connection Error');
+                };
+                function bookFlight(selectedflight) {
+                    console.log("das ist der ausgewaählte flug:")
+                    console.log(selectedflight);
+                    console.log(user.username)
+                        var flight = JSON.stringify({"flightnumber": selectedflight, "user": user.username, "seats":people, "action":"connect"});
+                        console.log("bookFlight")
+                        return flight
+                }
+            }else{
+                alert("Token undefined")
+            }
+        }else{
+            alert("You are not signed in. Please sign in or sign up for free")
+        }
     }
-    //bookFlight();
-
-
-        //check if authenticated
-        //establish websocket connection
-        //loading screen
-        //popup if booking was successfull
-    }
-
-    return (
+  return (
         <div className="Flights">
+            <div className="Flights">
+                <button onClick={() => getToken()}> Token</button>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -81,7 +104,7 @@ const SearchItem = () => {
                             <td > {flight.CurrentDate}</td>
                             <td > {flight.FlightNumber}</td>
                             <td > {flight.Price}$</td>
-                            <td> <button onClick={() => executeBooking()}> Book for: {calculatePrice(flight.Price,people)}$</button></td>
+                            <td> <button onClick={() => executeBooking(flight.FlightNumber)}> Total Price: {calculatePrice(flight.Price,people)}$</button></td>
                         </tr>
                         
                     ))}

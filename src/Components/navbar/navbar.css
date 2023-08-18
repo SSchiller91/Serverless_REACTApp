@@ -1,5 +1,5 @@
 .navbar{
-    height: 50px;
+    height: 80px;
     background-color: #003580;
     display: flex;
     justify-content: center;
@@ -20,8 +20,16 @@
   
   .navButton{
     margin-left: 20px;
+    margin-top: 15px;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     color: #003580;
   }
+  .logContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  

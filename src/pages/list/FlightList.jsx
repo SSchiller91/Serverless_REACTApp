@@ -7,7 +7,6 @@ import { useState } from 'react';
 import SearchItem from '../../Components/searchItem/SearchItem';
 
 const FlightList = () => {
-
     const location = useLocation()
     console.log(location)
     const [origin, setOrigin] = useState(location.state.origin);
