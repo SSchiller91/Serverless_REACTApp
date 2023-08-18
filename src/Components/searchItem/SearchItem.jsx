@@ -58,7 +58,10 @@ const SearchItem = () => {
                     client.send(bookFlight(selectedFlightNumber))
                 };
                 client.onmessage = (message) => {
-                    console.log(message);
+                    var parsedmessage = JSON.parse(message.data)
+                    if(parsedmessage.Payload == "Booking successful"){
+                        alert("Deine Buchung war erfolgreich. Du solltest innerhalb von 24h eine Bestätigungsmail erhalten")
+                    }
                 };
                 client.onerror = function() {
                     console.log('Connection Error');
