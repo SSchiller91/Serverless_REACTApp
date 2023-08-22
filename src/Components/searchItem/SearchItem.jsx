@@ -52,15 +52,19 @@ const SearchItem = () => {
             var W3CWebSocket = require('websocket').w3cwebsocket;
             var client = new W3CWebSocket('wss://gg96x13vd5.execute-api.eu-central-1.amazonaws.com/production?token="'+jwtToken+'"');
             var W3CWebSocket = require('websocket').w3cwebsocket;
-            
                 client.onopen = () => {
                     console.log('WebSocket Client Connected');
                     client.send(bookFlight(selectedFlightNumber))
                 };
                 client.onmessage = (message) => {
                     var parsedmessage = JSON.parse(message.data)
+                    console.log(parsedmessage)
                     if(parsedmessage.Payload == "Booking successful"){
                         alert("Deine Buchung war erfolgreich. Du solltest innerhalb von 24h eine Bestätigungsmail erhalten")
+                        console.log("Booking successful")
+                    }else if(parsedmessage.Payload = "Already Booked"){
+                        alert ("Sorry already booked, please choose another flight")
+                        console.log("already booked")
                     }
                 };
                 client.onerror = function() {
@@ -75,7 +79,7 @@ const SearchItem = () => {
                         return flight
                 }
             }else{
-                alert("Token undefined")
+                console.log("Token undefined")
             }
         }else{
             alert("You are not signed in. Please sign in or sign up for free")
@@ -109,7 +113,6 @@ const SearchItem = () => {
                             <td > {flight.Price}$</td>
                             <td> <button onClick={() => executeBooking(flight.FlightNumber)}> Total Price: {calculatePrice(flight.Price,people)}$</button></td>
                         </tr>
-                        
                     ))}
                 </tbody>
             </table>

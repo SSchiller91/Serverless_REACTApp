@@ -5,6 +5,8 @@ import { useState } from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../../Components/navbar/Navbar';
+import Header from '../../Components/header/Header';
 
 const  Flight =  () => {
     //Destination and Origin
@@ -68,6 +70,9 @@ const  Flight =  () => {
     
     
     return (
+        <div>
+            <Navbar/>
+            <Header/> 
         <div className='headerSearch'>
             <div className="headerSearchItem">
                 <input onChange={e =>setOrigin(e.target.value) } type="text" placeholder='Origin' className='headerSearchInput'/>
@@ -95,6 +100,7 @@ const  Flight =  () => {
             <div className="headerSearchItem">
                 <button className='headerBtn' onClick={() => getData() }>Search</button>
             </div>
+        </div>
         </div>
     )
 }

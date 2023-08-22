@@ -1,16 +1,22 @@
 import "./header.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faHotel, faPlaneCircleCheck} from "@fortawesome/free-solid-svg-icons";
+import {faHotel,faHouse, faPlaneCircleCheck} from "@fortawesome/free-solid-svg-icons";
 import Flight from "../../pages/flight/Flight";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+    const navigate = useNavigate();
     return (
         <div className="header">
             <div className="headerContainer">
                 <div className="headerList">
-                    <div className="headerListItem active">
+                    <div className="headerListItem">
+                        <FontAwesomeIcon icon={faHouse} />
+                        <span onClick={() => navigate("/")}>Home</span>
+                    </div>
+                    <div className="headerListItem">
                         <FontAwesomeIcon icon={faPlaneCircleCheck} />
-                        <span>Flights</span>
+                        <span onClick={() => navigate("/flightsLookup")}>Flights</span>
                     </div>
                     <div className="headerListItem">
                         <FontAwesomeIcon icon={faHotel} />
@@ -21,9 +27,7 @@ const Header = () => {
                 <p className="headerDesc">
                     AnyTravel, your next adventure is just a click away
                 </p>
-                    <div className="headerSearchItem">
-                        <Flight/>
-                    </div>
+
             </div>
         </div>
     );

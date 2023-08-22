@@ -1,0 +1,33 @@
+.MyBookings {
+    border-collapse: collapse;
+    margin: 50px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.15);
+  }
+  .MyBookings thead tr {
+    background-color: #003580;
+    color: #ffffff;
+    text-align: left;
+  }
+  .MyBookings th,
+  .MyBookings td {
+      padding: 12px 15px;
+  }
+  .MyBookings tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .MyBookings tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .MyBookings tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+  }
+  .MyBookings tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+  }
+  

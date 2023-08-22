@@ -1,10 +1,9 @@
 import React from 'react';
 import "./flightlist.css";
-import Navbar from "../../Components/navbar/Navbar";
-import Header from "../../Components/header/Header";
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import SearchItem from '../../Components/searchItem/SearchItem';
+import Flight from '../flight/Flight';
 
 const FlightList = () => {
     const location = useLocation()
@@ -18,8 +17,7 @@ const FlightList = () => {
     
     return (
         <div>
-            <Navbar/>    
-            <Header/>
+            <Flight/>
             <SearchItem/>
         </div>
     )

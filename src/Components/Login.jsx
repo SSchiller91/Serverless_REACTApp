@@ -14,11 +14,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 
-const Login = ({user, signOut}) => {
-
-    const navigate = useNavigate();
-    //const { route } = useAuthenticator(context => [context.route]);
-
+const Login = () => {
 
     return (
       <div>
