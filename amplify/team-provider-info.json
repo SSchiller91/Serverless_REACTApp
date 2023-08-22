@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "anycompanyamplify43736e29": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }
