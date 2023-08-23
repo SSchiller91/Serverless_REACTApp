@@ -43,7 +43,6 @@ const MyBookings = () => {
 
                 };
                 client.onmessage = (message) => {
-                    console.log("eskommt eine Nachricht")
                     var parsedmessage = JSON.parse(message.data)
                     console.log(parsedmessage)
                         if(parsedmessage.Payload == "Successfully Canceled"){
@@ -53,11 +52,6 @@ const MyBookings = () => {
                             setBookedFlightsArray(parsedmessage.Payload.Payload) 
                             console.log(parsedmessage.Payload.Payload) 
                         }
-                        
-
-                    
-
-
                 };
                 client.onerror = function() {
                     console.log('Connection Error');
