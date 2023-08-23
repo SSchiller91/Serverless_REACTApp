@@ -50,7 +50,7 @@ const SearchItem = () => {
                 console.log("Token verfügbar")
                 console.log (jwtToken);
                 var W3CWebSocket = require('websocket').w3cwebsocket;
-                var client = new W3CWebSocket('wss://gg96x13vd5.execute-api.eu-central-1.amazonaws.com/production?token="'+jwtToken+'"');
+                var client = new W3CWebSocket('wss://d2x6ojpdp7goxs.cloudfront.net?token="'+jwtToken+'"');
                 var W3CWebSocket = require('websocket').w3cwebsocket;
                 client.onopen = () => {
                     console.log('WebSocket Client Connected');
