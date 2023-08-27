@@ -19,5 +19,26 @@
         "S3AndCloudFront": {}
       }
     }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-anycompanyamplify-prod-103259-authRole",
+      "UnauthRoleArn": "arn:aws:iam::493527203918:role/amplify-anycompanyamplify-prod-103259-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::493527203918:role/amplify-anycompanyamplify-prod-103259-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-anycompanyamplify-prod-103259-deployment",
+      "UnauthRoleName": "amplify-anycompanyamplify-prod-103259-unauthRole",
+      "StackName": "amplify-anycompanyamplify-prod-103259",
+      "StackId": "arn:aws:cloudformation:eu-central-1:493527203918:stack/amplify-anycompanyamplify-prod-103259/54e61170-44b4-11ee-88aa-065a3cae1204",
+      "AmplifyAppId": "d3r0xhweh3hsyv"
+    },
+    "categories": {
+      "auth": {
+        "anycompanyamplify43736e29": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
   }
 }
