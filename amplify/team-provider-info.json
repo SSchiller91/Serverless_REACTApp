@@ -93,16 +93,17 @@
       "AmplifyAppId": "d3r0xhweh3hsyv"
     },
     "categories": {
+      "hosting": {
+        "S3AndCloudFront": {}
+      },
       "auth": {
+        "anycompanyamplify3a506145": {},
         "anycompanyamplify49f91905": {
           "userPoolId": "eu-central-1_IwgVU57DH",
           "userPoolName": "3Tier WebApp Identity",
           "webClientId": "498omt4fv02rrbvbte21j43enc",
           "nativeClientId": "498omt4fv02rrbvbte21j43enc"
         }
-      },
-      "hosting": {
-        "S3AndCloudFront": {}
       }
     }
   }
