@@ -1,34 +1,51 @@
 {
   "auth": {
-    "anycompanyamplify43736e29": {
+    "anycompanyamplify49f91905": {
       "customAuth": false,
       "dependsOn": [],
-      "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": 8
-        },
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "socialProviders": [],
-        "usernameAttributes": [],
-        "verificationMechanisms": [
-          "EMAIL"
-        ]
-      },
       "providerPlugin": "awscloudformation",
-      "service": "Cognito"
+      "service": "Cognito",
+      "serviceType": "imported"
     }
   },
   "hosting": {
     "S3AndCloudFront": {
       "providerPlugin": "awscloudformation",
       "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_anycompanyamplify49f91905_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "anycompanyamplify49f91905"
+        }
+      ]
+    },
+    "AMPLIFY_auth_anycompanyamplify49f91905_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "anycompanyamplify49f91905"
+        }
+      ]
+    },
+    "AMPLIFY_auth_anycompanyamplify49f91905_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "anycompanyamplify49f91905"
+        }
+      ]
+    },
+    "AMPLIFY_auth_anycompanyamplify49f91905_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "anycompanyamplify49f91905"
+        }
+      ]
     }
   }
 }
