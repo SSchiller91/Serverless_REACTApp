@@ -79,5 +79,31 @@
         "S3AndCloudFront": {}
       }
     }
+  },
+  "awseuprod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-anycompanyamplify-awseuprod-103752-authRole",
+      "UnauthRoleArn": "arn:aws:iam::493527203918:role/amplify-anycompanyamplify-awseuprod-103752-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::493527203918:role/amplify-anycompanyamplify-awseuprod-103752-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-anycompanyamplify-awseuprod-103752-deployment",
+      "UnauthRoleName": "amplify-anycompanyamplify-awseuprod-103752-unauthRole",
+      "StackName": "amplify-anycompanyamplify-awseuprod-103752",
+      "StackId": "arn:aws:cloudformation:eu-central-1:493527203918:stack/amplify-anycompanyamplify-awseuprod-103752/58130d50-4647-11ee-83b7-02fe449476cf",
+      "AmplifyAppId": "d3r0xhweh3hsyv"
+    },
+    "categories": {
+      "auth": {
+        "anycompanyamplify49f91905": {
+          "userPoolId": "eu-central-1_IwgVU57DH",
+          "userPoolName": "3Tier WebApp Identity",
+          "webClientId": "498omt4fv02rrbvbte21j43enc",
+          "nativeClientId": "498omt4fv02rrbvbte21j43enc"
+        }
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
+      }
+    }
   }
 }
